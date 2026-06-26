@@ -1,19 +1,18 @@
-import random
+def get_valid_word(prompt_text):
+    while True:
+        user_word = input(prompt_text).strip()
+        if user_word.replace(" ", "").isalpha():
+            return user_word
+        print("Oops! Please enter a real word (no numbers, spaces, or symbols).")
 
-limit = int(input("Enter your range: "))
 
-computer = random.randint(1,limit)
-counter = 0
+print("Welcome to the Ultimate Mad Libs Generator!\n")
 
-while counter < 10:
-    player = int(input(f"Enter your number(1 to {limit}): "))
-    counter += 1
-    if player == computer:
-        print(f"You found it!:{computer}, in {counter} tries.")
-        break
-    elif player < computer:
-        print("Higher, Try again!")
-    elif player > computer:
-        print("Lower, Try again!")
-    if counter == 10:
-        print(f"You couldn't find the number {computer}!")
+adjective = get_valid_word("Enter an adjective: ")
+noun1 = get_valid_word("Enter a noun: ")
+verb = get_valid_word("Enter a past-tense verb: ")
+noun2 = get_valid_word("Enter another noun: ")
+
+final_story = f"\nOnce upon a time, a {adjective} {noun1} {verb} straight into a {noun2}!"
+
+print(final_story)
